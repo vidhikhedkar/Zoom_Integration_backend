@@ -80,7 +80,7 @@ app.post('/api/create-meeting', async (req, res) => {
             }
         });
 
-        
+
         const joinUrlWithoutPassword = response.data.join_url.split("?")[0];
 
 
@@ -142,6 +142,16 @@ app.post('/api/create-meeting', async (req, res) => {
         res.status(500).json({ success: false, error: 'Failed to create meeting' });
     }
 });
+
+
+
+app.get("/", (req, res) => {
+    res.json({
+        success: true,
+        message: "Zoom integration API is running successfully 🚀",
+    });
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
